@@ -1,6 +1,9 @@
 import { mount } from "@vue/test-utils";
 
 const App = {
+  data: () => ({
+    msg: "Hello",
+  }),
   props: {
     count: {
       type: Number,
@@ -26,6 +29,7 @@ function factory(props) {
 describe("App", () => {
   it("render count when odd", () => {
     const wrapper = factory({ count: 1 });
+    console.log(wrapper.vm);
     expect(wrapper.html()).toContain("Count: 1. Count is odd");
   });
 
