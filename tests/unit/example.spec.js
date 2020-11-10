@@ -1,13 +1,12 @@
 import { mount } from "@vue/test-utils";
+import { ref } from "vue";
 
 const App = {
-  data: () => ({
-    count: 0,
-  }),
-  methods: {
-    increment() {
-      this.count += 1;
-    },
+  setup() {
+    const count = ref(0);
+    const increment = () => (count.value += 1);
+
+    return { count, increment };
   },
   template: `
     <button @click="increment"></button>
