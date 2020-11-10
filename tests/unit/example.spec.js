@@ -2,13 +2,8 @@ import { mount } from "@vue/test-utils";
 
 const App = {
   data: () => ({
-    msg: "Hello",
+    count: 0,
   }),
-  props: {
-    count: {
-      type: Number,
-    },
-  },
   template: `
     <div v-if="count % 2 === 0">
       Count: {{ count }}. Count is even.
@@ -20,21 +15,30 @@ const App = {
   `,
 };
 
-function factory(props) {
+function factory({ data }) {
   return mount(App, {
-    props,
+    data() {
+      return data;
+    },
   });
 }
 
 describe("App", () => {
   it("render count when odd", () => {
-    const wrapper = factory({ count: 1 });
-    console.log(wrapper.vm);
+    const wrapper = factory({
+      data: {
+        count: 1,
+      },
+    });
     expect(wrapper.html()).toContain("Count: 1. Count is odd");
   });
 
   it("render count when even", () => {
-    const wrapper = factory({ count: 2 });
+    const wrapper = factory({
+      data: {
+        count: 2,
+      },
+    });
     expect(wrapper.html()).toContain("Count: 2. Count is even");
   });
 });
