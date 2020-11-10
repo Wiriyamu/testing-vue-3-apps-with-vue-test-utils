@@ -1,10 +1,24 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <button @click="increment">Click</button>
+  <div v-if="count % 2 === 0">Count: {{ count }}. Count is even.</div>
+  <div v-if="count % 2 !== 0">Count: {{ count }}. Count is odd.</div>
 </template>
+
+<script>
+import { computed } from "vue";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    const count = computed(() => store.state.count);
+    const increment = () => {
+      store.commit("increment");
+    };
+
+    return { count, increment };
+  },
+};
+</script>
 
 <style>
 #app {
