@@ -17,9 +17,17 @@ const createVuexStore = () => {
 
 function factory() {
   const store = createVuexStore();
+
   return mount(App, {
     global: {
       plugins: [store],
+      mocks: {
+        $route: {
+          params: {
+            postId: "1",
+          },
+        },
+      },
     },
   });
 }
@@ -36,5 +44,10 @@ describe("App", () => {
     await wrapper.find("button").trigger("click");
     await wrapper.find("button").trigger("click");
     expect(wrapper.html()).toContain("Count: 2. Count is even");
+  });
+
+  it("render router", async () => {
+    const wrapper = factory();
+    expect(wrapper.html()).toContain("PostID: 1");
   });
 });

@@ -2,20 +2,26 @@
   <button @click="increment">Click</button>
   <div v-if="count % 2 === 0">Count: {{ count }}. Count is even.</div>
   <div v-if="count % 2 !== 0">Count: {{ count }}. Count is odd.</div>
+
+  <div>PostID: {{ postId }}</div>
 </template>
 
 <script>
-import { computed } from "vue";
-import { useStore } from "vuex";
 export default {
-  setup() {
-    const store = useStore();
-    const count = computed(() => store.state.count);
-    const increment = () => {
-      store.commit("increment");
-    };
+  name: "App.vue",
+  computed: {
+    postId() {
+      return this.$route.params.postId;
+    },
 
-    return { count, increment };
+    count() {
+      return this.$store.state.count;
+    },
+  },
+  methods: {
+    increment() {
+      this.$store.commit("increment");
+    },
   },
 };
 </script>
