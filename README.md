@@ -20,6 +20,11 @@ yarn build
 yarn test:unit
 ```
 
+### Run your ui-clicking nightwatch.js tests
+```
+yarn test:e2e
+```
+
 ### Lints and fixes files
 ```
 yarn lint
