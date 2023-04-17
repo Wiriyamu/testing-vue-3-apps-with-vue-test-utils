@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -16,7 +17,9 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.0",
     "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-e2e-nightwatch": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-plugin-router": "~5.0.8",
     "@vue/cli-plugin-unit-jest": "~5.0.8",
@@ -24,9 +27,10 @@
     "@vue/cli-service": "~5.0.8",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/test-utils": "^2.0.0-0",
-    "@babel/eslint-parser": "^7.21.0",
+    "chromedriver": "112",
     "eslint": "^8.38.0",
     "eslint-plugin-vue": "^9.11.0",
+    "geckodriver": "^3.0.1",
     "typescript": "~5.0.4",
     "vue-jest": "^5.0.0-0",
     "vue3-jest": "^27.0.0-alpha.1"
