@@ -2,8 +2,7 @@
   <button @click="increment">Click</button>
   <div v-if="count % 2 === 0">Count: {{ count }}. Count is even.</div>
   <div v-if="count % 2 !== 0">Count: {{ count }}. Count is odd.</div>
-
-  <div>PostID: {{ postId }}</div>
+  <div id="pid">PostID: {{ postId }}</div>
 </template>
 
 <script>

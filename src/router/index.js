@@ -5,7 +5,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [{
+      path: ":postId",
+      name: "post",
+      component: Home
+    }]
   },
   {
     path: '/about',

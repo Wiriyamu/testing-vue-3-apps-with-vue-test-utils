@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+logs/
+tests/e2e/reports/
 
 
 # local env files
